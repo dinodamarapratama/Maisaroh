@@ -1,0 +1,560 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript"src="js/lodash.min.js"></script>
+	<script type="text/javascript" src="training.json"></script>
+     <style type="text/css">
+	 body{
+	
+    font-family: 'Open Sans', sans-serif;
+	background:#fff;
+}
+	 
+	  #content {
+        overflow:hidden;
+		background-color:#ddd;
+	  }
+	  #canvas{
+		cursor:crosshair ;
+        background-color:#fff;
+			
+	  }
+	  
+	input[type="submit"]{
+    font-size: 1em;
+	background:#ff6b4a;
+	padding: 0.6em 2em;
+	text-align: center;
+	color: #fff;
+	border: none;
+	outline:none;
+	-webkit-appearance: none;
+}
+input[type="submit"]:hover{
+	background:#555;
+}
+
+input#round{
+width:40%; /*same as the height*/
+height:30px; /*same as the width*/
+background-color:#a46e3f;
+border:1px solid #a46e3f; /*same colour as the background*/
+color:#fff;
+font-size:12px;
+/*set the border-radius at half the size of the width and height*/
+-webkit-border-radius: 50px;
+-moz-border-radius: 50px;
+border-radius: 30px;
+/*give the button a small drop shadow*/
+-webkit-box-shadow: 0 0 10px rgba(0,0,0, .75);
+-moz-box-shadow: 0 0 10px rgba(0,0,0, .75);
+box-shadow: 2px 2px 15px rgba(0,0,0, .75);
+}
+/***NOW STYLE THE BUTTON'S HOVER STATE***/
+input#round:hover{
+background:#c20b0b;
+border:1px solid #c20b0b;
+/*reduce the size of the shadow to give a pushed effect*/
+-webkit-box-shadow: 0px 0px 5px rgba(0,0,0, .75);
+-moz-box-shadow: 0px 0px 5px rgba(0,0,0, .75);
+box-shadow: 0px 0px 5px rgba(0,0,0, .75);
+}
+	
+    </style>
+  
+  <!-- CSS goes in the document HEAD or added to your external stylesheet -->
+<style type="text/css">
+
+	
+</style>
+
+ <script type="text/javascript">
+
+ var data1_s1 = 0;
+ var data1_s2 = 0;
+ var data2_s1 = 0;
+ var data2_s2 = 0;
+ var data3_s1 = 0;
+ var data3_s2 = 0;
+ var data4_s1 = 0;
+ var data4_s2 = 0;
+ var data5_s1 = 0;
+ var data5_s2 = 0;
+ var data6_s1 = 0;
+ var data6_s2 = 0;
+ 
+ function clearCanvas() {
+	context = $("#canvas1")[0].getContext('2d');
+	context.clearRect(0, 0, $("#canvas1")[0].width, $("#canvas1")[0].height);
+	moves = [];
+    angleArray = [];
+  data1_s1 = 0;
+  data1_s2 = 0;
+  data2_s1 = 0;
+  data2_s2 = 0;
+  data3_s1 = 0;
+  data3_s2 = 0;
+  data4_s1 = 0;
+  data4_s2 = 0;
+  data5_s1 = 0;
+  data5_s2 = 0;
+  data6_s1 = 0;
+  data6_s2 = 0;
+  document.getElementById("hasil").innerHTML = "" ;
+ // var box = document.getElementById('box');
+ // box.style.display = (box.style.display != 'visible') ? 'none' : '';
+}
+
+
+$(document).ready(function() {
+	newCanvas();
+});
+
+
+var recording = false;
+var lastPositionX = 0;
+var lastPositionY = 0;
+var moves = new Array;
+var angleArray = new Array;
+var sectorRad = Math.PI * 2 / 8;
+var anglesMap = new Array;
+var step = Math.PI * 2 / 100;
+var sector;
+for (var i = -sectorRad / 2; i <= Math.PI * 2 - sectorRad / 2; i += step) {
+	sector = Math.floor((i + sectorRad / 2) / sectorRad);
+	anglesMap.push(sector);
+}
+
+
+
+
+function newCanvas() {
+	var canvas = '<canvas id="canvas1"  width="' + ($(window).width() - 20) + '"  height="300" style="border:0px solid #190c00; max-width: 100%;height: auto;background:url(Black-Board.png);background-position: center top; background-size: 100% 100%;background-repeat: no-repeat;" ></canvas>';
+	$("#canvas").html(canvas);
+	ctx = document.getElementById("canvas1").getContext("2d");
+	ctx.lineWidth = 4;
+	$("#canvas1").drawTouch();
+	$("#canvas1").drawMouse();
+}
+
+
+
+$.fn.drawTouch = function() {
+	var start = function(e) {
+		e = e.originalEvent;
+		ctx.beginPath();
+		ctx.strokeStyle="#fff";
+		x = e.changedTouches[0].pageX - 9;
+		y = e.changedTouches[0].pageY - 9;
+		ctx.moveTo(x, y);
+		ctx.strokeRect(x, y, 1, 1);
+		lastPositionX = e.changedTouches[0].pageX - $("#canvas1").offset().left;
+		lastPositionY = e.changedTouches[0].pageY - $("#canvas1").offset().top;
+        recording = true;
+		
+	
+
+	};
+
+	var move = function(e) {
+
+		e = e.originalEvent;
+		x = e.changedTouches[0].pageX - 9;
+		y = e.changedTouches[0].pageY - 9;
+		ctx.lineTo(x, y);
+		ctx.stroke();
+		
+
+
+		if (recording == true) {
+			var msx = (e.changedTouches[0].pageX - $("#canvas1").offset().left);
+			var msy = (e.changedTouches[0].pageY - $("#canvas1").offset().top);
+			var difx = msx - lastPositionX;
+			var dify = msy - lastPositionY;
+			var sqDist = (difx * difx + dify * dify);
+			var sqPrec = (8 * 8);
+			if (sqDist > sqPrec) {
+
+				lastPositionX = msx;
+				lastPositionY = msy;
+				var angle = Math.atan2(difx, dify) + sectorRad / 2;
+				var angleRound = Math.floor(angle * 100);
+				//f = value < 0 ? Math.abs(value) : value;
+				if (angle < 0) angle += Math.PI * 2;
+				var no = Math.floor(angle / (Math.PI * 2) * 100);
+				moves.push(anglesMap[no]);
+				angleArray.push(angleRound);
+				data1_s1 = _.first(_.uniq(angleArray)) ;
+				data2_s1 = _.last(_.uniq(angleArray)) ;
+				data3_s1 = _.first(_.uniq(moves)) ;
+				data4_s1 = _.last(_.uniq(moves)) ;
+				data5_s1 = _.uniq(angleArray).length ;
+				data6_s1 = _.uniq(moves).length ;
+
+			}
+		}
+	};
+
+	var stop = function(e) {
+		clicked = 0;
+		recording = false;
+		lastPositionX = 0;
+		lastPositionY = 0;
+		
+		data1_s2 += data1_s1 ;
+		data2_s2 += data2_s1 ;
+		data3_s2 += data3_s1 ;
+		data4_s2 += data4_s1 ;
+		data5_s2 += data5_s1 ;
+		data6_s2 += data6_s1 ;
+		
+	};
+
+	$(this).on("touchstart", start);
+	$(this).on("touchmove", move);
+	$(this).on("touchend", stop);
+};
+
+
+
+$.fn.drawMouse = function() {
+	var clicked = 0;
+	var start = function(e) {
+		e = e.originalEvent;
+		clicked = 1;
+		ctx.beginPath();
+		ctx.strokeStyle="#fff";
+		x = e.pageX - 9;
+		y = e.pageY - 9;
+		ctx.moveTo(x, y);
+		ctx.strokeRect(x, y, 1, 1);
+		lastPositionX = e.clientX - $("#canvas1").offset().left;
+		lastPositionY = e.clientY - $("#canvas1").offset().top;
+		recording = true;
+		
+	};
+
+	var move = function(e) {
+		e = e.originalEvent;
+
+		if (clicked) {
+			x = e.pageX - 9;
+		    y = e.pageY - 9;
+			ctx.lineTo(x, y);
+			ctx.stroke();
+		}
+		if (recording == true) {
+			var msx = (e.clientX - $("#canvas1").offset().left);
+			var msy = (e.clientY - $("#canvas1").offset().top);
+			var difx = msx - lastPositionX;
+			var dify = msy - lastPositionY;
+			var sqDist = (difx * difx + dify * dify);
+			var sqPrec = (8 * 8);
+
+
+			if (sqDist > sqPrec) {
+
+				lastPositionX = msx;
+				lastPositionY = msy;
+				var angle = Math.atan2(difx, dify) + sectorRad / 2;
+				var angleRound = Math.floor(angle * 100);
+				//f = value < 0 ? Math.abs(value) : value;
+				if (angle < 0) angle += Math.PI * 2;
+				var no = Math.floor(angle / (Math.PI * 2) * 100);
+				moves.push(anglesMap[no]);
+				angleArray.push(angleRound);
+				data1_s1 = _.first(_.uniq(angleArray)) ;
+				data2_s1 = _.last(_.uniq(angleArray)) ;
+				data3_s1 = _.first(_.uniq(moves)) ;
+				data4_s1 = _.last(_.uniq(moves)) ;
+				data5_s1 = _.uniq(angleArray).length ;
+				data6_s1 = _.uniq(moves).length ;
+
+			}
+		}
+
+
+
+	};
+
+	var stop = function(e) {
+		e = e.originalEvent;
+		clicked = 0;
+		recording = false;
+		lastPositionX = 0;
+		lastPositionY = 0;
+		
+		data1_s2 += data1_s1 ;
+		data2_s2 += data2_s1 ;
+		data3_s2 += data3_s1 ;
+		data4_s2 += data4_s1 ;
+		data5_s2 += data5_s1 ;
+		data6_s2 += data6_s1 ;
+		
+
+	
+		console.log(data1_s2 + " " + data2_s2);
+		
+		
+		
+	};
+
+	$(this).on("mousedown", start);
+	$(this).on("mousemove", move);
+	$(this).on("mouseup", stop);
+};
+
+  //Batas ---------------------------------
+  var Node = function(object) {
+        for (var key in object) {
+          this[key] = object[key];
+		
+        }
+      };
+	  
+      Node.prototype.measureDistances = function(last_angle_range_obj, first_angle_range_obj) {
+        var first_angle_range = first_angle_range_obj.max - first_angle_range_obj.min;
+		  
+        var last_angle_range = last_angle_range_obj.max - last_angle_range_obj.min;
+		
+        for (var i in this.neighbors) {
+       
+          var neighbor = this.neighbors[i];
+          var delta_first_angle = neighbor.first_angle - this.first_angle;
+          delta_first_angle = (delta_first_angle) / first_angle_range;
+          var delta_last_angle = neighbor.last_angle - this.last_angle;
+          delta_last_angle = (delta_last_angle) / last_angle_range;
+          neighbor.distance = Math.sqrt(delta_first_angle * delta_first_angle + delta_last_angle * delta_last_angle);
+        }
+      };
+      Node.prototype.sortByDistance = function() {
+        this.neighbors.sort(function(a, b) {
+          return a.distance - b.distance;
+        });
+      };
+      Node.prototype.guesstype = function(k) {
+        var types = {};
+        for (var i in this.neighbors.slice(0, k)) {
+          var neighbor = this.neighbors[i];
+          if (!types[neighbor.type]) {
+            types[neighbor.type] = 0;
+          }
+          types[neighbor.type] += 1;
+        }
+		
+		
+        var guess = {
+          type: false,
+          count: 0
+        };
+        for (var type in types) {
+          if (types[type] > guess.count) {
+		 
+            guess.type = type;
+            guess.count = types[type];
+          }
+        }
+        this.guess = guess;
+        return types;
+      };
+      var NodeList = function(k) {
+        this.nodes = [];
+        this.k = k;
+      };
+	  
+      NodeList.prototype.add = function(node) {
+        this.nodes.push(node); //add data
+      };
+	  
+      NodeList.prototype.determineUnknown = function() {
+        this.calculateRanges();
+       
+        for (var i in this.nodes) {
+          if (!this.nodes[i].type) {
+            /*
+             * If the node is an unknown type, clone the nodes list and then measure distances.
+             */
+            /* Clone nodes */
+            this.nodes[i].neighbors = [];
+            for (var j in this.nodes) {
+              if (!this.nodes[j].type) continue;
+              this.nodes[i].neighbors.push(new Node(this.nodes[j]));
+            }
+            /* Measure distances */
+            this.nodes[i].measureDistances(this.last_angle, this.first_angle);
+            /* Sort by distance */
+            this.nodes[i].sortByDistance();
+            /* Guess type */
+            console.log(this.nodes[i].guesstype(this.k));
+			var str =  JSON.stringify(this.nodes[i].guesstype(this.k))
+			var res = str.replace(/{|}|"/ig, "");
+			var res_2 = res.replace(/:/ig, " dengan nilai ");
+			var res_3 = res_2.replace(/,/ig, ", ");
+
+			
+			document.getElementById("hasil").innerHTML = "<b>   Kemungkinan type yang kamu tulis adalah  </b>" + res_3 + " .";
+          }
+        }
+      };
+	  
+      NodeList.prototype.calculateRanges = function() { //mencari range data min dan Max
+        this.last_angle = {
+          min: 1000000,
+          max: 0
+        };
+		
+        this.first_angle = {
+          min: 1000000,
+          max: 0
+        };
+        for (var i in this.nodes) {;
+          if (this.nodes[i].first_angle < this.first_angle.min) {
+            this.first_angle.min = this.nodes[i].first_angle;
+			
+          }
+          if (this.nodes[i].first_angle > this.first_angle.max) {
+            this.first_angle.max = this.nodes[i].first_angle;
+          }
+          if (this.nodes[i].last_angle < this.last_angle.min) {
+            this.last_angle.min = this.nodes[i].last_angle;
+          }
+          if (this.nodes[i].last_angle > this.last_angle.max) {
+            this.last_angle.max = this.nodes[i].last_angle;
+          }
+        }
+      };
+     
+      var nodes;
+      
+
+      function run() {
+	 
+        nodes = new NodeList(5); //parameter K
+		
+        for (var i in data) {
+          nodes.add(new Node(data[i])); //add data
+		 
+        }
+        nodes.add(new Node({ //add data measureDistances,sortByDistance,guesstype
+          first_angle: data1_s2,
+          last_angle: data2_s2,
+          type: false
+        }));   //input data tidak diketahui
+        nodes.determineUnknown();
+		
+		     // var box = document.getElementById('box');
+            // box.style.display = (box.style.display != 'none') ? 'visible' : '';
+        
+      }
+
+
+	</script>
+		<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+		<script type="text/javascript" charset="utf-8" src="cordova_plugins.js"></script>
+    
+	<script type="text/javascript" charset="utf-8">
+
+        // Wait for Cordova to load
+        //
+        document.addEventListener("deviceready", onDeviceReady, false);
+
+        // Cordova is ready
+        //
+        function onDeviceReady() {
+       
+        }
+        
+        // Audio player
+        //
+          var my_media = null;
+        var mediaTimer = null;
+
+      
+        // Play audio
+        //
+        function playAudio(src) {
+            // Create Media object from src
+            my_media = new Media(src, onSuccess, onError);
+
+            // Play audio
+            my_media.play();
+
+            // Update my_media position every second
+            if (mediaTimer == null) {
+                mediaTimer = setInterval(function() {
+                    // get my_media position
+                    my_media.getCurrentPosition(
+                        // success callback
+                        function(position) {
+                            if (position > -1) {
+                                setAudioPosition((position) + " sec");
+                            }
+                        },
+                        // error callback
+                        function(e) {
+                            console.log("Error getting pos=" + e);
+                            setAudioPosition("Error: " + e);
+                        }
+                    );
+                }, 1000);
+            }
+        }
+
+        // Pause audio
+        // 
+        function pauseAudio() {
+            if (my_media) {
+                my_media.pause();
+            }
+        }
+
+        // Stop audio
+        // 
+        function stopAudio() {
+            if (my_media) {
+                my_media.stop();
+            }
+            clearInterval(mediaTimer);
+            mediaTimer = null;
+        }
+
+        // onSuccess Callback
+        //
+        function onSuccess() {
+            console.log("playAudio():Audio Success");
+        }
+
+        // onError Callback 
+        //
+        function onError(error) {
+            alert('code: '    + error.code    + '\n' + 
+                  'message: ' + error.message + '\n');
+        }
+
+        // Set audio position
+        // 
+        function setAudioPosition(position) {
+            document.getElementById('audio_position').innerHTML = position;
+        }
+        
+       </script>
+</head>
+<body>
+	
+		 <div id="outer" >  
+      <div id="canvas" ></div>
+	  </div>
+	 
+
+	 <input id="round" type="submit" onclick="clearCanvas()"  value="Try Again" />
+    <input id="round" type="submit" onclick="run()" value="Recognition" />
+	 <br/><br/><p style="display:inline" id="hasil"></p>
+		
+
+
+</body>
+</html>

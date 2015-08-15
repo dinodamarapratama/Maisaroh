@@ -1,0 +1,1254 @@
+var data = [
+  {
+    type: "A",
+    first_angle: 51,
+    last_angle: 322
+  },
+  {
+    type: "A",
+    first_angle: 3,
+    last_angle: 263
+  },
+  {
+    type: "A",
+    first_angle: -39,
+    last_angle: 311
+  },
+  {
+    type: "A",
+    first_angle: -51,
+    last_angle: 348
+  },
+  {
+    type: "A",
+    first_angle: 42,
+    last_angle: 334
+  },
+  {
+    type: "A",
+    first_angle: 51,
+    last_angle: 229
+  },
+  {
+    type: "A",
+    first_angle: -87,
+    last_angle: 309
+  },
+  {
+    type: "A",
+    first_angle: -78,
+    last_angle: 253
+  },
+  {
+    type: "A",
+    first_angle: 9,
+    last_angle: 237
+  },
+  {
+    type: "A",
+    first_angle: -12,
+    last_angle: 248
+  },
+  {
+    type: "B",
+    first_angle: 78,
+    last_angle: -103
+  },
+  {
+    type: "B",
+    first_angle: 78,
+    last_angle: -72
+  },
+  {
+    type: "B",
+    first_angle: 34,
+    last_angle: -68
+  },
+  {
+    type: "B",
+    first_angle: 60,
+    last_angle: -89
+  },
+  {
+    type: "B",
+    first_angle: 38,
+    last_angle: -55
+  },
+  {
+    type: "B",
+    first_angle: 52,
+    last_angle: -92
+  },
+  {
+    type: "B",
+    first_angle: 102,
+    last_angle: -57
+  },
+  {
+    type: "B",
+    first_angle: 78,
+    last_angle: -43
+  },
+  {
+    type: "B",
+    first_angle: 78,
+    last_angle: -46
+  },
+  {
+    type: "B",
+    first_angle: 154,
+    last_angle: -115
+  },
+  {
+    type: "C",
+    first_angle: -170,
+    last_angle: 238
+  },
+  {
+    type: "C",
+    first_angle: -154,
+    last_angle: 220
+  },
+  {
+    type: "C",
+    first_angle: -170,
+    last_angle: 238
+  },
+  {
+    type: "C",
+    first_angle: -118,
+    last_angle: 274
+  },
+  {
+    type: "C",
+    first_angle: -118,
+    last_angle: 220
+  },
+  {
+    type: "C",
+    first_angle: -118,
+    last_angle: 238
+  },
+  {
+    type: "C",
+    first_angle: -125,
+    last_angle: 214
+  },
+  {
+    type: "C",
+    first_angle: -140,
+    last_angle: 247
+  },
+  {
+    type: "C",
+    first_angle: -118,
+    last_angle: 225
+  },
+  {
+    type: "C",
+    first_angle: -118,
+    last_angle: 208
+  },
+  {
+    type: "D",
+    first_angle: 78,
+    last_angle: -105
+  },
+  {
+    type: "D",
+    first_angle: 78,
+    last_angle: -32
+  },
+  {
+    type: "D",
+    first_angle: 78,
+    last_angle: -21
+  },
+  {
+    type: "D",
+    first_angle: 78,
+    last_angle: 25
+  },
+  {
+    type: "D",
+    first_angle: 66,
+    last_angle: -103
+  },
+  {
+    type: "D",
+    first_angle: 78,
+    last_angle: -82
+  },
+  {
+    type: "D",
+    first_angle: 78,
+    last_angle: -20
+  },
+  {
+    type: "D",
+    first_angle: 136,
+    last_angle: -80
+  },
+  {
+    type: "D",
+    first_angle: 170,
+    last_angle: -55
+  },
+  {
+    type: "D",
+    first_angle: 146,
+    last_angle: -67
+  },
+  {
+    type: "E",
+    first_angle: 117,
+    last_angle: 609
+  },
+  {
+    type: "E",
+    first_angle: 117,
+    last_angle: 600
+  },
+  {
+    type: "E",
+    first_angle: 117,
+    last_angle: 585
+  },
+  {
+    type: "E",
+    first_angle: 117,
+    last_angle: 656
+  },
+  {
+    type: "E",
+    first_angle: 138,
+    last_angle: 644
+  },
+  {
+    type: "E",
+    first_angle: 78,
+    last_angle: 602
+  },
+  {
+    type: "E",
+    first_angle: 117,
+    last_angle: 661
+  },
+  {
+    type: "E",
+    first_angle: 117,
+    last_angle: 873
+  },
+  {
+    type: "E",
+    first_angle: 117,
+    last_angle: 671
+  },
+  {
+    type: "E",
+    first_angle: 87,
+    last_angle: 726
+  },
+  {
+    type: "F",
+    first_angle: 117,
+    last_angle: 465
+  },
+  {
+    type: "F",
+    first_angle: 117,
+    last_angle: 413
+  },
+  {
+    type: "F",
+    first_angle: 117,
+    last_angle: 405
+  },
+  {
+    type: "F",
+    first_angle: 144,
+    last_angle: 488
+  },
+  {
+    type: "F",
+    first_angle: 117,
+    last_angle: 436
+  },
+  {
+    type: "F",
+    first_angle: 84,
+    last_angle: 416
+  },
+  {
+    type: "F",
+    first_angle: 57,
+    last_angle: 455
+  },
+  {
+    type: "F",
+    first_angle: 117,
+    last_angle: 452
+  },
+  {
+    type: "F",
+    first_angle: 78,
+    last_angle: 809
+  },
+  {
+    type: "F",
+    first_angle: 87,
+    last_angle: 408
+  },
+  {
+    type: "G",
+    first_angle: -258,
+    last_angle: 285
+  },
+  {
+    type: "G",
+    first_angle: -394,
+    last_angle: 284
+  },
+  {
+    type: "G",
+    first_angle: -394,
+    last_angle: 285
+  },
+  {
+    type: "G",
+    first_angle: -348,
+    last_angle: 245
+  },
+  {
+    type: "G",
+    first_angle: -348,
+    last_angle: 282
+  },
+  {
+    type: "G",
+    first_angle: -164,
+    last_angle: 143
+  },
+  {
+    type: "G",
+    first_angle: -188,
+    last_angle: 170
+  },
+  {
+    type: "G",
+    first_angle: -120,
+    last_angle: -34
+  },
+  {
+    type: "G",
+    first_angle: -131,
+    last_angle: -23
+  },
+  {
+    type: "G",
+    first_angle: -118,
+    last_angle: 17
+  },
+  {
+    type: "H",
+    first_angle: 57,
+    last_angle: 251
+  },
+  {
+    type: "H",
+    first_angle: 117,
+    last_angle: 279
+  },
+  {
+    type: "H",
+    first_angle: 117,
+    last_angle: 319
+  },
+  {
+    type: "H",
+    first_angle: 117,
+    last_angle: 299
+  },
+  {
+    type: "H",
+    first_angle: 117,
+    last_angle: 323
+  },
+  {
+    type: "H",
+    first_angle: 117,
+    last_angle: 261
+  },
+  {
+    type: "H",
+    first_angle: 117,
+    last_angle: 588
+  },
+  {
+    type: "H",
+    first_angle: 117,
+    last_angle: 295
+  },
+  {
+    type: "H",
+    first_angle: 51,
+    last_angle: 320
+  },
+  {
+    type: "H",
+    first_angle: 90,
+    last_angle: 283
+  },
+  {
+    type: "I",
+    first_angle: 33,
+    last_angle: 51
+  },
+  {
+    type: "I",
+    first_angle: 39,
+    last_angle: 47
+  },
+  {
+    type: "I",
+    first_angle: 71,
+    last_angle: 63
+  },
+  {
+    type: "I",
+    first_angle: 39,
+    last_angle: 49
+  },
+  {
+    type: "I",
+    first_angle: 30,
+    last_angle: 71
+  },
+  {
+    type: "I",
+    first_angle: 588,
+    last_angle: 418
+  },
+  {
+    type: "I",
+    first_angle: 588,
+    last_angle: 410
+  },
+  {
+    type: "I",
+    first_angle: 558,
+    last_angle: 400
+  },
+  {
+    type: "I",
+    first_angle: 522,
+    last_angle: 390
+  },
+  {
+    type: "I",
+    first_angle: 588,
+    last_angle: 450
+  },
+  {
+    type: "J",
+    first_angle: 61,
+    last_angle: 342
+  },
+  {
+    type: "J",
+    first_angle: 26,
+    last_angle: 340
+  },
+  {
+    type: "J",
+    first_angle: 71,
+    last_angle: -240
+  },
+  {
+    type: "J",
+    first_angle: 39,
+    last_angle: 353
+  },
+  {
+    type: "J",
+    first_angle: 71,
+    last_angle: -234
+  },
+  {
+    type: "J",
+    first_angle: 392,
+    last_angle: -20
+  },
+  {
+    type: "J",
+    first_angle: 392,
+    last_angle: 517
+  },
+  {
+    type: "J",
+    first_angle: 392,
+    last_angle: 540
+  },
+  {
+    type: "J",
+    first_angle: 392,
+    last_angle: 518
+  },
+  {
+    type: "J",
+    first_angle: 392,
+    last_angle: -61
+  },
+  {
+    type: "K",
+    first_angle: 87,
+    last_angle: 126
+  },
+  {
+    type: "K",
+    first_angle: 153,
+    last_angle: 453
+  },
+  {
+    type: "K",
+    first_angle: 189,
+    last_angle: 386
+  },
+  {
+    type: "K",
+    first_angle: 117,
+    last_angle: 455
+  },
+  {
+    type: "K",
+    first_angle: 117,
+    last_angle: 442
+  },
+  {
+    type: "K",
+    first_angle: 78,
+    last_angle: 231
+  },
+  {
+    type: "K",
+    first_angle: 126,
+    last_angle: 215
+  },
+  {
+    type: "K",
+    first_angle: 126,
+    last_angle: 156
+  },
+  {
+    type: "K",
+    first_angle: 96,
+    last_angle: 233
+  },
+  {
+    type: "K",
+    first_angle: 170,
+    last_angle: 251
+  },
+  {
+    type: "L",
+    first_angle: 45,
+    last_angle: 207
+  },
+  {
+    type: "L",
+    first_angle: 69,
+    last_angle: 160
+  },
+  {
+    type: "L",
+    first_angle: 39,
+    last_angle: 171
+  },
+  {
+    type: "L",
+    first_angle: 39,
+    last_angle: 183
+  },
+  {
+    type: "L",
+    first_angle: 50,
+    last_angle: 220
+  },
+  {
+    type: "L",
+    first_angle: 39,
+    last_angle: 196
+  },
+  {
+    type: "L",
+    first_angle: 39,
+    last_angle: 196
+  },
+  {
+    type: "L",
+    first_angle: 39,
+    last_angle: 167
+  },
+  {
+    type: "L",
+    first_angle: 48,
+    last_angle: 196
+  },
+  {
+    type: "L",
+    first_angle: 50,
+    last_angle: 220
+  },
+  {
+    type: "M",
+    first_angle: 156,
+    last_angle: 520
+  },
+  {
+    type: "M",
+    first_angle: 112,
+    last_angle: 412
+  },
+  {
+    type: "M",
+    first_angle: 156,
+    last_angle: 456
+  },
+  {
+    type: "M",
+    first_angle: 156,
+    last_angle: 482
+  },
+  {
+    type: "M",
+    first_angle: 104,
+    last_angle: 501
+  },
+  {
+    type: "M",
+    first_angle: 100,
+    last_angle: 94
+  },
+  {
+    type: "M",
+    first_angle: 78,
+    last_angle: 98
+  },
+  {
+    type: "M",
+    first_angle: 78,
+    last_angle: 70
+  },
+  {
+    type: "M",
+    first_angle: 78,
+    last_angle: 29
+  },
+  {
+    type: "M",
+    first_angle: 78,
+    last_angle: 57
+  },
+  {
+    type: "N",
+    first_angle: 84,
+    last_angle: 161
+  },
+  {
+    type: "N",
+    first_angle: 87,
+    last_angle: 145
+  },
+  {
+    type: "N",
+    first_angle: 117,
+    last_angle: 160
+  },
+  {
+    type: "N",
+    first_angle: 117,
+    last_angle: 244
+  },
+  {
+    type: "N",
+    first_angle: 78,
+    last_angle: 148
+  },
+  {
+    type: "N",
+    first_angle: 100,
+    last_angle: -226
+  },
+  {
+    type: "N",
+    first_angle: 150,
+    last_angle: 224
+  },
+  {
+    type: "O",
+    first_angle: -106,
+    last_angle: -170
+  },
+  {
+    type: "O",
+    first_angle: -129,
+    last_angle: -143
+  },
+  {
+    type: "O",
+    first_angle: -66,
+    last_angle: -154
+  },
+  {
+    type: "O",
+    first_angle: -118,
+    last_angle: -150
+  },
+  {
+    type: "O",
+    first_angle: -106,
+    last_angle: -118
+  },
+  {
+    type: "O",
+    first_angle: -96,
+    last_angle: -131
+  },
+  {
+    type: "O",
+    first_angle: -131,
+    last_angle: -118
+  },
+  {
+    type: "O",
+    first_angle: -62,
+    last_angle: -68
+  },
+  {
+    type: "O",
+    first_angle: -118,
+    last_angle: -140
+  },
+  {
+    type: "O",
+    first_angle: -131,
+    last_angle: -40
+  },
+  {
+    type: "P",
+    first_angle: 42,
+    last_angle: -59
+  },
+  {
+    type: "P",
+    first_angle: 78,
+    last_angle: -35
+  },
+  {
+    type: "P",
+    first_angle: 78,
+    last_angle: -87
+  },
+  {
+    type: "P",
+    first_angle: 56,
+    last_angle: -67
+  },
+  {
+    type: "P",
+    first_angle: 78,
+    last_angle: -80
+  },
+  {
+    type: "P",
+    first_angle: 78,
+    last_angle: -80
+  },
+  {
+    type: "P",
+    first_angle: 92,
+    last_angle: -69
+  },
+  {
+    type: "P",
+    first_angle: 110,
+    last_angle: -79
+  },
+  {
+    type: "P",
+    first_angle: 114,
+    last_angle: -55
+  },
+  {
+    type: "P",
+    first_angle: 142,
+    last_angle: -25
+  },
+  {
+    type: "Q",
+    first_angle: -340,
+    last_angle: -96
+  },
+  {
+    type: "Q",
+    first_angle: -236,
+    last_angle: -92
+  },
+  {
+    type: "Q",
+    first_angle: -214,
+    last_angle: 6
+  },
+  {
+    type: "Q",
+    first_angle: -212,
+    last_angle: -60
+  },
+  {
+    type: "Q",
+    first_angle: -124,
+    last_angle: -308
+  },
+  {
+    type: "Q",
+    first_angle: -160,
+    last_angle: -17
+  },
+  {
+    type: "Q",
+    first_angle: -258,
+    last_angle: 58
+  },
+  {
+    type: "Q",
+    first_angle: -236,
+    last_angle: -1
+  },
+  {
+    type: "Q",
+    first_angle: -216,
+    last_angle: 14
+  },
+  {
+    type: "Q",
+    first_angle: -184,
+    last_angle: 3
+  },
+  {
+    type: "R",
+    first_angle: 84,
+    last_angle: 90
+  },
+  {
+    type: "R",
+    first_angle: 78,
+    last_angle: 31
+  },
+  {
+    type: "R",
+    first_angle: 56,
+    last_angle: 125
+  },
+  {
+    type: "R",
+    first_angle: 96,
+    last_angle: 46
+  },
+  {
+    type: "R",
+    first_angle: 144,
+    last_angle: 34
+  },
+  {
+    type: "R",
+    first_angle: 78,
+    last_angle: 211
+  },
+  {
+    type: "R",
+    first_angle: 52,
+    last_angle: 174
+  },
+  {
+    type: "R",
+    first_angle: 78,
+    last_angle: 212
+  },
+  {
+    type: "R",
+    first_angle: 78,
+    last_angle: 199
+  },
+  {
+    type: "R",
+    first_angle: 78,
+    last_angle: 210
+  },
+  {
+    type: "S",
+    first_angle: -263,
+    last_angle: -240
+  },
+  {
+    type: "S",
+    first_angle: 353,
+    last_angle: -220
+  },
+  {
+    type: "S",
+    first_angle: -254,
+    last_angle: 340
+  },
+  {
+    type: "S",
+    first_angle: 353,
+    last_angle: -229
+  },
+  {
+    type: "S",
+    first_angle: 340,
+    last_angle: -205
+  },
+  {
+    type: "S",
+    first_angle: -180,
+    last_angle: -240
+  },
+  {
+    type: "S",
+    first_angle: -197,
+    last_angle: -143
+  },
+  {
+    type: "S",
+    first_angle: -177,
+    last_angle: -143
+  },
+  {
+    type: "S",
+    first_angle: -234,
+    last_angle: -143
+  },
+  {
+    type: "S",
+    first_angle: -211,
+    last_angle: -131
+  },
+  {
+    type: "T",
+    first_angle: 78,
+    last_angle: 234
+  },
+  {
+    type: "T",
+    first_angle: 102,
+    last_angle: 222
+  },
+  {
+    type: "T",
+    first_angle: 78,
+    last_angle: 232
+  },
+  {
+    type: "T",
+    first_angle: 56,
+    last_angle: 146
+  },
+  {
+    type: "T",
+    first_angle: 78,
+    last_angle: 255
+  },
+  {
+    type: "T",
+    first_angle: 392,
+    last_angle: 252
+  },
+  {
+    type: "T",
+    first_angle: 408,
+    last_angle: 269
+  },
+  {
+    type: "T",
+    first_angle: 406,
+    last_angle: 215
+  },
+  {
+    type: "T",
+    first_angle: 392,
+    last_angle: 255
+  },
+  {
+    type: "T",
+    first_angle: 392,
+    last_angle: 242
+  },
+  {
+    type: "U",
+    first_angle: 39,
+    last_angle: -264
+  },
+  {
+    type: "U",
+    first_angle: 39,
+    last_angle: -251
+  },
+  {
+    type: "U",
+    first_angle: 29,
+    last_angle: 343
+  },
+  {
+    type: "U",
+    first_angle: 39,
+    last_angle: -264
+  },
+  {
+    type: "U",
+    first_angle: 39,
+    last_angle: -263
+  },
+  {
+    type: "U",
+    first_angle: 56,
+    last_angle: 463
+  },
+  {
+    type: "U",
+    first_angle: 14,
+    last_angle: 353
+  },
+  {
+    type: "V",
+    first_angle: 75,
+    last_angle: 328
+  },
+  {
+    type: "V",
+    first_angle: 126,
+    last_angle: 435
+  },
+  {
+    type: "V",
+    first_angle: 110,
+    last_angle: 444
+  },
+  {
+    type: "V",
+    first_angle: 150,
+    last_angle: 401
+  },
+  {
+    type: "V",
+    first_angle: 122,
+    last_angle: 392
+  },
+  {
+    type: "V",
+    first_angle: 54,
+    last_angle: 301
+  },
+  {
+    type: "V",
+    first_angle: 117,
+    last_angle: 301
+  },
+  {
+    type: "V",
+    first_angle: 75,
+    last_angle: 291
+  },
+  {
+    type: "V",
+    first_angle: 89,
+    last_angle: 274
+  },
+  {
+    type: "V",
+    first_angle: 78,
+    last_angle: 297
+  },
+  {
+    type: "W",
+    first_angle: 236,
+    last_angle: 256
+  },
+  {
+    type: "W",
+    first_angle: 220,
+    last_angle: 859
+  },
+  {
+    type: "W",
+    first_angle: 228,
+    last_angle: 234
+  },
+  {
+    type: "W",
+    first_angle: 308,
+    last_angle: 774
+  },
+  {
+    type: "W",
+    first_angle: 220,
+    last_angle: 784
+  },
+  {
+    type: "W",
+    first_angle: 51,
+    last_angle: 353
+  },
+  {
+    type: "W",
+    first_angle: 39,
+    last_angle: 353
+  },
+  {
+    type: "W",
+    first_angle: 74,
+    last_angle: 353
+  },
+  {
+    type: "W",
+    first_angle: 57,
+    last_angle: 328
+  },
+  {
+    type: "W",
+    first_angle: 124,
+    last_angle: 321
+  },
+  {
+    type: "X",
+    first_angle: 202,
+    last_angle: 383
+  },
+  {
+    type: "X",
+    first_angle: 184,
+    last_angle: 392
+  },
+  {
+    type: "X",
+    first_angle: 222,
+    last_angle: 402
+  },
+  {
+    type: "X",
+    first_angle: 178,
+    last_angle: 381
+  },
+  {
+    type: "X",
+    first_angle: 186,
+    last_angle: 373
+  },
+  {
+    type: "X",
+    first_angle: -108,
+    last_angle: 109
+  },
+  {
+    type: "X",
+    first_angle: -46,
+    last_angle: 127
+  },
+  {
+    type: "X",
+    first_angle: -198,
+    last_angle: 73
+  },
+  {
+    type: "X",
+    first_angle: -136,
+    last_angle: 102
+  },
+  {
+    type: "X",
+    first_angle: -128,
+    last_angle: 104
+  },
+  {
+    type: "Y",
+    first_angle: 234,
+    last_angle: 350
+  },
+  {
+    type: "Y",
+    first_angle: 225,
+    last_angle: 129
+  },
+  {
+    type: "Y",
+    first_angle: 144,
+    last_angle: 123
+  },
+  {
+    type: "Y",
+    first_angle: 405,
+    last_angle: 450
+  },
+  {
+    type: "Y",
+    first_angle: 267,
+    last_angle: 136
+  },
+  {
+    type: "Y",
+    first_angle: 306,
+    last_angle: 109
+  },
+  {
+    type: "Z",
+    first_angle: 519,
+    last_angle: 380
+  },
+  {
+    type: "Z",
+    first_angle: 588,
+    last_angle: 354
+  },
+  {
+    type: "Z",
+    first_angle: 588,
+    last_angle: 366
+  },
+  {
+    type: "Z",
+    first_angle: 588,
+    last_angle: 351
+  },
+  {
+    type: "Z",
+    first_angle: 588,
+    last_angle: 347
+  },
+  {
+    type: "Z",
+    first_angle: 196,
+    last_angle: 205
+  },
+  {
+    type: "Z",
+    first_angle: 187,
+    last_angle: 183
+  },
+  {
+    type: "Z",
+    first_angle: 196,
+    last_angle: 185
+  },
+  {
+    type: "Z",
+    first_angle: 196,
+    last_angle: 160
+  },
+  {
+    type: "Z",
+    first_angle: 196,
+    last_angle: 208
+  }
+  
+
+];
