@@ -4,7 +4,7 @@
    xmlns:android = "http://schemas.android.com/apk/res/android"
    id = "com.phonegap.mkkn" 
    version = "1.0.0">
-   <name>KNN Handwriting</name>  
+   <name>KNN HWR</name>  
    <description>
 
    </description>
@@ -55,7 +55,7 @@
    
    <gap:splash src="splash/L4.jpg" gap:platform="android" gap:qualifier="land-ldpi" /> 
    <gap:splash src="splash/L3.jpg" gap:platform="android" gap:qualifier="land-mdpi" />  
-   <gap:s plash src="splash/L2.jpg" gap:platform="android" gap:qualifier="land-hdpi" />
+   <gap:splash src="splash/L2.jpg" gap:platform="android" gap:qualifier="land-hdpi" />
    <gap:splash src="splash/L1.jpg" gap:platform="android" gap:qualifier="land-xhdpi" />
 
   
