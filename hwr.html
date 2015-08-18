@@ -133,7 +133,7 @@ for (var i = -sectorRad / 2; i <= Math.PI * 2 - sectorRad / 2; i += step) {
 
 
 function newCanvas() {
-	var canvas = '<canvas id="canvas1"  width="' + ($(window).width() - 20) + '"  height="300" style="border:0px solid #190c00; max-width: 100%;height: auto;background:url(Black-Board.png);background-position: center top; background-size: 100% 100%;background-repeat: no-repeat;" ></canvas>';
+	var canvas = '<canvas id="canvas1"  width="' + ($(window).width() - 20) + '"  height="' + ($(window).height() - 150) + '" style="border:0px solid #190c00; max-width: 100%;height: auto;background:url(Black-Board.png);background-position: center top; background-size: 100% 100%;background-repeat: no-repeat;" ></canvas>';
 	$("#canvas").html(canvas);
 	ctx = document.getElementById("canvas1").getContext("2d");
 	ctx.lineWidth = 4;
